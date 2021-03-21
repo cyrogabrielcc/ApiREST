@@ -1,15 +1,15 @@
 ﻿using RestWithASPNET.Models;
 using RestWithASPNET.Models.Context;
-using RestWithASPNET.Services.Implementations;
+using RestWithASPNET.Business.Implementations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace RestWithASPNET.Services.Implamentations
+namespace RestWithASPNET.Business.Implamentations
 {
-    public class PersonServiceImplementation : IPersonService
+    public class PersonServiceImplementation : IPersonRepository
     {
         private MySQLContext _context;
         private volatile int count;

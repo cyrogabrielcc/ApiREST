@@ -1,21 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using RestWithASPNET.Models;
 using RestWithASPNET.Models.Context;
-using RestWithASPNET.Services.Implamentations;
-using RestWithASPNET.Services.Implementations;
+using RestWithASPNET.Business.Implamentations;
+using RestWithASPNET.Business.Implementations;
 
 namespace RestWithASPNET
 {
@@ -36,7 +28,11 @@ namespace RestWithASPNET
             var connection = Configuration["MySQLConnection:MySQLConnectionString"];
             services.AddDbContext<MySQLContext>(options => options.UseMySql(connection));
 
-            services.AddScoped <IPersonService, PersonServiceImplementation>();           
+            //versionamento de api
+            services.AddApiVersioning();
+
+
+            services.AddScoped <IPersonRepository, PersonServiceImplementation>();           
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "RestWithASPNET", Version = "v1" });
