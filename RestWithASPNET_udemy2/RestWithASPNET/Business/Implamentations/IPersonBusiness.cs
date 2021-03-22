@@ -6,7 +6,7 @@ using RestWithASPNET.Models;
 
 namespace RestWithASPNET.Business.Implementations
 {
-    public interface IPersonRepository
+    public interface IPersonBusiness
     {
         Person Create(Person person);
         Person FindByID(long id);

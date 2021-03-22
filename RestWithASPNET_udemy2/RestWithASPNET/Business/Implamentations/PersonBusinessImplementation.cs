@@ -9,15 +9,20 @@ using System.Threading.Tasks;
 
 namespace RestWithASPNET.Business.Implamentations
 {
-    public class PersonServiceImplementation : IPersonRepository
+    public class PersonServiceImplementation : IPersonBusiness
     {
         private MySQLContext _context;
         private volatile int count;
 
-        public PersonServiceImplementation(MySQLContext context)
+        public void PersonBusinessImplementation(MySQLContext context)
         {
             _context = context;
         }
+
+        // public PersonBusinessImplementation(MySQLContext context)
+        // {
+        //     _context = context;
+        // }
 
         public Person Create(Person person)
         {

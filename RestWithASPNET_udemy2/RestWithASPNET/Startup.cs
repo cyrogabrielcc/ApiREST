@@ -8,6 +8,8 @@ using Microsoft.OpenApi.Models;
 using RestWithASPNET.Models.Context;
 using RestWithASPNET.Business.Implamentations;
 using RestWithASPNET.Business.Implementations;
+using RestWithASPNET.Repository;
+using RestWithASPNET.Repository.Implamentations;
 
 namespace RestWithASPNET
 {
@@ -32,7 +34,7 @@ namespace RestWithASPNET
             services.AddApiVersioning();
 
 
-            services.AddScoped <IPersonRepository, PersonServiceImplementation>();           
+            services.AddScoped <IPersonRepository, PersonRepositoryImplementation>();           
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "RestWithASPNET", Version = "v1" });
