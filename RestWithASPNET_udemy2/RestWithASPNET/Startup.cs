@@ -35,6 +35,7 @@ namespace RestWithASPNET
 
 
             services.AddScoped <IPersonRepository, PersonRepositoryImplementation>();           
+            services.AddScoped <IPersonBusiness, PersonServiceImplementation >();           
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "RestWithASPNET", Version = "v1" });

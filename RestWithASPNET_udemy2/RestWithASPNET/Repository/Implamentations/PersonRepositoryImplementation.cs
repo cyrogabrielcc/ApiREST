@@ -12,7 +12,6 @@ namespace RestWithASPNET.Repository.Implamentations
     public class PersonRepositoryImplementation : IPersonRepository
     {
         private MySQLContext _context;
-        private volatile int count;
 
         public PersonRepositoryImplementation(MySQLContext context)
         {
